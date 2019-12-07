@@ -443,3 +443,10 @@ void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned
     pblock->vtx[0] = MakeTransactionRef(std::move(txCoinbase));
     pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
 }
+
+/*BitcoinCore のブロック生成処理を見ていると、Coinbase Tx の ScriptSig に ExtraNonce と呼ばれる値をセットしている処理がある。
+マイナーは通常、ハッシュ計算時にブロックヘッダーのマークルルートを更新するためにこのフィールドに余分なノンスを配置します。
+> Miners commonly place an extra nonce in this field to update the block header merkle root during hashing.
+> https://bitcoin.org/en/developer-reference#raw-transaction-format
+
+マイニング時にブロックヘッダのnonceフィールドだけでは足りずに、Merkle Root を更新することで、更にハッシュ計算を続けるために使うということ*/

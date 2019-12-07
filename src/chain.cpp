@@ -138,7 +138,8 @@ arith_uint256 GetBlockProof(const CBlockIndex& block)
 `0xFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`
 となって、ほぼ 2*256 と同じ値として使っても差し支えが無いという話のようです。
 
-ちなみに、`arith_uint256` という型は Bitcoin Core の中で定義されている 256bit の整数値を扱うための型で、秘密鍵やハッシュ値など 256bit のデータを扱う事が多い事情からとても多くの処理で使われているものです。
+ちなみに、`arith_uint256` という型は Bitcoin Core の中で定義されている 256bit の整数値を扱うための型で、
+秘密鍵やハッシュ値など 256bit のデータを扱う事が多い事情からとても多くの処理で使われているものです。
 
         */
 

@@ -3,17 +3,16 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-//2016ブロックごとにターゲットを調整するコードです。
+//2016ブロックごとにターゲットを調整するコードファイルです。
 
 #include <pow.h>
-
 #include <arith_uint256.h>
 #include <chain.h>
 #include <primitives/block.h>
 #include <uint256.h>
 
 /*[概要]
-この関数は次のブロックのディフィカルティを返すようです。ブロックヘッダのnBitに設定される値です。
+次のブロックのディフィカルティを返す関数、ブロックヘッダのnBitに設定される値です。
 [引数]
 `const CBlockIndex* pindexLast` 一つ前のブロックへのインデックス
 `const CBlockHeader *pblock` ブロックヘッダへのポインタ。PoWで正解のハッシュ値を見つけたいブロックを指します。
@@ -21,7 +20,7 @@
 `00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff`*/
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
-    assert(pindexLast != nullptr);
+    assert(pindexLast != nullptr);tesirnablockcajin2-1
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
 
     // Only change once per difficulty adjustment interval
@@ -123,3 +122,5 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
 
     return true;
 }
+
+
